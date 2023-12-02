@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import multer from "multer";
 import path from "path";
 import userRouter from "./Routes/User.js";
+import postRouter from "./Routes/Post.js";
+import { isAuth } from "./middlewars/isAuth.js";
 const app = express();
 
 mongoose
@@ -18,7 +20,8 @@ app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use("/api/v1/user", userRouter);
-
+app.use("/api/v1/post", postRouter);
+app.use(isAuth);
 app.listen(5000, () => {
   console.log("Server is working");
 });

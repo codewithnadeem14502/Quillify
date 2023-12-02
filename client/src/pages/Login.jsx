@@ -23,8 +23,11 @@ const Login = () => {
       setCookies("access-token", respond.data.token);
       const message = respond.data.message;
       if (message == "Login Successfully") {
+        // navigate("/");
         enqueueSnackbar(message, { variant: "success" });
-        navigate("/");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
       } else {
         enqueueSnackbar(message, { variant: "error" });
       }

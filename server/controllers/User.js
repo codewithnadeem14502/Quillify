@@ -17,7 +17,10 @@ export const Login = async (req, res) => {
     return res.json({ message: "Username or Password is Incorrect" });
   }
 
-  const token = jwt.sign({ id: user._id }, "secret");
+  const token = jwt.sign(
+    { id: user._id, username: user.username, email: user.email },
+    "secret"
+  );
 
   res.json({ token, message: "Login Successfully" });
 };
@@ -44,4 +47,8 @@ export const Logout = (req, res) => {
   res.clearCookie("access-token");
 
   res.json({ message: "Logout Successful" });
+};
+
+export const Profile = async (req, res) => {
+  return res.json({ username: req.username, email: req.email });
 };

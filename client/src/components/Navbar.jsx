@@ -1,8 +1,10 @@
 // src/components/Navbar.js
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { userContext } from "../App";
+import Logout from "../pages/Logout";
 const Navbar = () => {
+  const user = useContext(userContext);
   return (
     <div className="flex justify-between items-center text-center bg-green-500 p-5">
       <h1 className="text-white text-2xl font-bold">
@@ -19,9 +21,13 @@ const Navbar = () => {
           Contact
         </Link>
       </div>
-      <Link to="/register" className="text-white hover:text-gray-300">
-        Login/Register
-      </Link>
+      {user.username ? (
+        <Logout />
+      ) : (
+        <Link to="/register" className="text-white hover:text-gray-300">
+          Login/Register
+        </Link>
+      )}
     </div>
   );
 };
