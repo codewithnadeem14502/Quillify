@@ -27,7 +27,7 @@ const getFirst20Words = (text) => {
   }
 
   const words = text.split(/\s+/); // Split by any whitespace character
-  return words.slice(0, 40).join(" ");
+  return words.slice(0, 20).join(" ");
 };
 
 const Post = ({ id, file, title, description }) => {

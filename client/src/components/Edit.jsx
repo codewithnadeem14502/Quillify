@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 import { useNavigate, useParams } from "react-router-dom";
-
+import JoditEditor from "jodit-react";
 const Edit = () => {
+  const editor = useRef(null);
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -79,7 +80,7 @@ const Edit = () => {
             >
               Description
             </label>
-            <textarea
+            {/* <textarea
               name="desc"
               id="desc"
               className="mt-1 p-2 border rounded w-full"
@@ -87,7 +88,16 @@ const Edit = () => {
               value={description}
               placeholder="Write your post description here"
               onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+            ></textarea> */}
+            <JoditEditor
+              ref={editor}
+              value={description}
+              tabIndex={1}
+              className="mt-1 p-2 border rounded w-full"
+              // onChange={(e) => setDescription(e.target.value)}
+              onChange={(description) => {}}
+              onBlur={(description) => setDescription(description)}
+            />
           </div>
 
           <button

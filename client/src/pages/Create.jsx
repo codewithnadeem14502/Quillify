@@ -1,16 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { userContext } from "../App";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
+import JoditEditor from "jodit-react";
 
 const Create = () => {
+  const editor = useRef(null);
+
   const user = useContext(userContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -37,6 +41,10 @@ const Create = () => {
       // console.log(error);
       enqueueSnackbar(error, { variant: "error" });
     }
+  };
+  const handleDescription = (content) => {
+    const parsedContent = HTMLReactParser(content);
+    setDescription(parsedContent);
   };
   return (
     <div className="container mx-auto my-8">
@@ -66,14 +74,21 @@ const Create = () => {
             >
               Description
             </label>
-            <textarea
+            {/* <textarea
               name="desc"
               id="desc"
               className="mt-1 p-2 border rounded w-full"
               rows="5"
               placeholder="Write your post description here"
               onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+            ></textarea> */}
+            <JoditEditor
+              ref={editor}
+              value={description}
+              tabIndex={1}
+              className="mt-1 p-2 border rounded w-full"
+              onChange={(description) => setDescription(description)}
+            />
           </div>
           <div>
             <label
