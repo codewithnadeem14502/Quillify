@@ -14,7 +14,10 @@ const Home = () => {
           "https://blog-backend-api-five.vercel.app/api/v1/post"
         );
         setPosts(response.data.reverse());
+        console.log("Response:", response.data);
       } catch (error) {
+        console.error("Axios Error:", error.message);
+        console.error("Error Details:", error.response.data);
         console.log(error);
       }
     };
