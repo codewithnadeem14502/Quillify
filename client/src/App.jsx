@@ -14,6 +14,7 @@ export const userContext = createContext();
 
 const App = () => {
   const [user, setUser] = useState({});
+  
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
