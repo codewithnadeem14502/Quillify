@@ -41,13 +41,13 @@ export const Register = async (req, res) => {
     res.json({ message: "Register Successfully" });
   } catch (error) {
     console.error(error); // Log the error for debugging
-
-    if (error.code === 11000) {
-      // MongoDB duplicate key error
-      return res.status(400).json({ error: "Email already registered" });
+    if (error.response && error.response.data && error.response.data.message) {
+      // Handle the case where the server sends an error message
+      return res.json({ message: error.response.data.message });
     }
 
-    res.status(500).json({ error: "Internal Server Error" });
+    // Handle other errors
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 export const Logout = (req, res) => {
