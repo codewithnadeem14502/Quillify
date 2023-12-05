@@ -8,7 +8,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/post");
+        const response = await axios.get(
+          "https://blog-backend-api-five.vercel.app/api/v1/post"
+        );
         setPosts(response.data.reverse());
       } catch (error) {
         console.log(error);

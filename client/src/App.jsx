@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/user/")
+      .get("https://blog-backend-api-five.vercel.app/api/v1/user/")
       .then((user) => {
         // console.log(user);
         setUser(user.data);

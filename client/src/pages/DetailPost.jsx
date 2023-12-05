@@ -14,7 +14,7 @@ const DetailPost = () => {
       try {
         setLoading(true);
         const respond = await axios.get(
-          `http://localhost:5000/api/v1/post/detailpost/${id}`
+          `https://blog-backend-api-five.vercel.app/api/v1/post/detailpost/${id}`
         );
         // console.log(respond);
         setLoading(false);
