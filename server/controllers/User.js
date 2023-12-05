@@ -40,8 +40,14 @@ export const Register = async (req, res) => {
 
     res.json({ message: "Register Successfully" });
   } catch (error) {
-    // res.json({ message: "Error in Registion" });
-    console.log(error.response?.data.message);
+    console.error(error); // Log the error for debugging
+
+    if (error.code === 11000) {
+      // MongoDB duplicate key error
+      return res.status(400).json({ error: "Email already registered" });
+    }
+
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 export const Logout = (req, res) => {
