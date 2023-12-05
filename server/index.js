@@ -7,21 +7,27 @@ import path from "path";
 import userRouter from "./Routes/User.js";
 import postRouter from "./Routes/Post.js";
 import { isAuth } from "./middlewars/isAuth.js";
+import dotenv from "dotenv";
+dotenv.config();
+
 const app = express();
 
+const PORT = process.env.PORT;
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Blog")
-  .then(() => console.log("DataBase is connected"));
+  .connect(process.env.MONGODB_URI)
+  // .connect("mongodb://127.0.0.1:27017/Blog")
+  .then(() => console.log(`DataBase is connected ${PORT}`));
 
 // middle ware
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: process.env.HOST_URL, credentials: true }));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/post", postRouter);
 app.use(isAuth);
+
 app.listen(5000, () => {
   console.log("Server is working");
 });
