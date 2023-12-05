@@ -17,7 +17,10 @@ const Home = () => {
         console.log("Response:", response.data);
       } catch (error) {
         console.error("Axios Error:", error.message);
-        console.error("Error Details:", error.response.data);
+        console.error(
+          "Error Details:",
+          error.response ? error.response.data : "No response"
+        );
         console.log(error);
       }
     };
