@@ -5,7 +5,11 @@
 
 
 
-https://github.com/codewithnadeem14502/Recipes-MERN/assets/105824474/ec731b37-b3cf-4897-8e55-066b7b85425c
+<h2>Demo Video</h2>
+
+https://github.com/codewithnadeem14502/Blog-MERN/assets/105824474/6837ec83-5cc9-445d-96ca-8c308e8904c0
+
+
 
 
 
