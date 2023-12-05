@@ -20,7 +20,7 @@ https://github.com/codewithnadeem14502/Blog-MERN/assets/105824474/6837ec83-5cc9-
 <p>2. Clone the repository:</p>
 
 ```
- git clone https://github.com/codewithnadeem14502/Recipes-MERN.git
+https://github.com/codewithnadeem14502/Blog-MERN.git
 ```
 
 <p>3. Navigate to the client directory and install dependencies:</p>
