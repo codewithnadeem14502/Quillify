@@ -24,7 +24,7 @@ const Create = () => {
     formData.append("username", user.username);
     try {
       const respond = await axios.post(
-        "blhttps://blog-backend-api-five.vercel.app/api/v1/post/create",
+        "https://blog-mern-backend-api.vercel.app/api/v1/post/create",
         formData
       );
 

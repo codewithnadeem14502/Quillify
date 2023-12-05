@@ -25,8 +25,8 @@ app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    // origin: [process.env.HOST_URL],
-    origin: ["https://blog-mern-frontend-phi.vercel.app"],
+    origin: [process.env.HOST_URL],
+    // origin: ["https://blog-mern-frontend-phi.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders:
       "Origin, X-Requested-With, Content-Type, Accept, Authorization",

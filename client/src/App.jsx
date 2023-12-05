@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("https://blog-backend-api-five.vercel.app/api/v1/user/")
+      .get("https://blog-mern-backend-api.vercel.app/api/v1/user/")
       .then((user) => {
         // console.log(user);
         setUser(user.data);

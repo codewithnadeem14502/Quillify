@@ -11,9 +11,9 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://blog-backend-api-five.vercel.app/api/v1/post"
+          "https://blog-mern-backend-api.vercel.app/api/v1/post"
         );
-          console.log("Response:", response.data);
+        console.log("Response:", response.data);
         setPosts(response.data.reverse());
         // console.log("Response:", response.data);
       } catch (error) {

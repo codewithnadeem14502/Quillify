@@ -15,7 +15,7 @@ const Edit = () => {
     const getDetails = async () => {
       try {
         const respond = await axios.get(
-          `https://blog-backend-api-five.vercel.app/api/v1/post/detailpost/${id}`
+          `https://blog-mern-backend-api.vercel.app/api/v1/post/detailpost/${id}`
         );
         // console.log(respond);
 
@@ -33,7 +33,7 @@ const Edit = () => {
 
     try {
       const respond = await axios.post(
-        `https://blog-backend-api-five.vercel.app/api/v1/post/editpost/${id}`,
+        `https://blog-mern-backend-api.vercel.app/api/v1/post/editpost/${id}`,
         { title, description }
       );
 
