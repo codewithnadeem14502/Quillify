@@ -40,6 +40,7 @@ export const Register = async (req, res) => {
 
     res.json({ message: "Register Successfully" });
   } catch (error) {
+    res.json({ message: "Error in Registion" });
     console.log(error);
   }
 };
