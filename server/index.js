@@ -28,6 +28,8 @@ app.use(
     // origin: [process.env.HOST_URL],
     origin: ["https://blog-mern-frontend-phi.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders:
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization",
     credentials: true,
   })
 );

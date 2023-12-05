@@ -15,6 +15,7 @@ const Register = () => {
     try {
       const respond = await axios.post(
         "https://blog-backend-api-five.vercel.app/api/v1/user/register",
+
         {
           username,
           email,
