@@ -14,7 +14,7 @@ const Register = () => {
 
     try {
       const respond = await axios.post(
-        "https://blog-mern-backend-api.vercel.app/api/v1/user/register",
+        "http://localhost:5000/api/v1/user/register",
 
         {
           username,

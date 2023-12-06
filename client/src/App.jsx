@@ -14,12 +14,12 @@ export const userContext = createContext();
 
 const App = () => {
   const [user, setUser] = useState({});
-  
+
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
     axios
-      .get("https://blog-mern-backend-api.vercel.app/api/v1/user/")
+      .get("http://localhost:5000/api/v1/user/")
       .then((user) => {
         // console.log(user);
         setUser(user.data);

@@ -10,15 +10,12 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://blog-mern-backend-api.vercel.app/api/v1/post"
-        );
+        const response = await axios.get("http://localhost:5000/api/v1/post");
         console.log("Response:", response.data);
         setPosts(response.data.reverse());
         // console.log("Response:", response.data);
       } catch (error) {
         console.error("Axios Error:", error.message);
-        // Check if 'response' property exists before accessing 'data'
         if (error.response) {
           console.error("Error Details:", error.response.data);
         } else {

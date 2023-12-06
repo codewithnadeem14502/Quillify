@@ -14,7 +14,7 @@ const DetailPost = () => {
       try {
         setLoading(true);
         const respond = await axios.get(
-          `https://blog-mern-backend-api.vercel.app/api/v1/post/detailpost/${id}`
+          `http://localhost:5000/api/v1/post/detailpost/${id}`
         );
         // console.log(respond);
         setLoading(false);

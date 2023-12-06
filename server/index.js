@@ -14,8 +14,8 @@ const app = express();
 
 const PORT = process.env.PORT;
 mongoose
-  .connect(process.env.MONGODB_URI)
-  // .connect("mongodb://127.0.0.1:27017/Blog")
+  // .connect(process.env.MONGODB_URI)
+  .connect("mongodb://127.0.0.1:27017/Blog")
   .then(() => console.log(`DataBase is connected ${PORT}`));
 
 // middle ware
@@ -25,8 +25,7 @@ app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: [process.env.HOST_URL],
-    // origin: ["https://blog-mern-frontend-phi.vercel.app"],
+    origin: ["http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders:
       "Origin, X-Requested-With, Content-Type, Accept, Authorization",

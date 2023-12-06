@@ -47,7 +47,7 @@ const Post = ({ id, file, title, description }) => {
     >
       <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
         <img
-          src={`https://blog-backend-api-five.vercel.app/Images/${file}`}
+          src={`http://localhost:5000/Images/${file}`}
           alt={title}
           className="w-full h-60 object-cover rounded-lg shadow-md"
         />
