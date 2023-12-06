@@ -40,15 +40,7 @@ export const Register = async (req, res) => {
 
     res.json({ message: "Register Successfully" });
   } catch (error) {
-    console.error(error); // Log the error for debugging
-
-    if (error.response && error.response.data && error.response.data.message) {
-      // Handle the case where the server sends an error message
-      return res.json({ message: error.response.data.message });
-    }
-
-    // Handle other errors
-    res.json({ message: "Error in Registration" });
+    console.error(error);
   }
 };
 export const Logout = (req, res) => {

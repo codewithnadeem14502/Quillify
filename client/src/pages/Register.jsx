@@ -27,9 +27,12 @@ const Register = () => {
         enqueueSnackbar(message, { variant: "success" });
         navigate("/login");
       } else {
+        console.log(message);
         enqueueSnackbar(message, { variant: "error" });
       }
     } catch (error) {
+      const message = respond.data.message;
+      console.log(error);
       enqueueSnackbar(message, { variant: "error" });
     }
   };

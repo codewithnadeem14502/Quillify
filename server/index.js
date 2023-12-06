@@ -14,8 +14,8 @@ const app = express();
 
 const PORT = process.env.PORT;
 mongoose
-  // .connect(process.env.MONGODB_URI)
-  .connect("mongodb://127.0.0.1:27017/Blog")
+  .connect(process.env.MONGODB_URI)
+  // .connect("mongodb://127.0.0.1:27017/Blog")
   .then(() => console.log(`DataBase is connected ${PORT}`));
 
 // middle ware
