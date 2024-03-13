@@ -9,9 +9,9 @@
 <h2>Demo Video</h2>
 
 
+https://github.com/codewithnadeem14502/Quillify/assets/105824474/148ef5c0-f113-4345-b663-12f961e29b31
 
 
-https://github.com/codewithnadeem14502/Blog-MERN/assets/105824474/e2219206-ceb6-4583-8305-c1b5cdc917b2
 
 
 
