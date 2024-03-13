@@ -14,7 +14,7 @@ const Create = () => {
   const [file, setFile] = useState();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
-
+  const URL = import.meta.env.VITE_BACKEND_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -23,10 +23,7 @@ const Create = () => {
     formData.append("file", file);
     formData.append("username", user.username);
     try {
-      const respond = await axios.post(
-        "http://localhost:9000/api/v1/post/create",
-        formData
-      );
+      const respond = await axios.post("${URL}/api/v1/post/create", formData);
 
       const message = respond.data.message;
       // console.log("msss " + message);

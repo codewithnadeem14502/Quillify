@@ -9,7 +9,7 @@ const Post = ({ id, file, title, description }) => {
 
   // Extracting text content without HTML tags
   const strippedDescription = stripHtmlTags(description);
-
+  const URL = import.meta.env.VITE_BACKEND_URL;
   return (
     <div
       key={id}
@@ -17,7 +17,7 @@ const Post = ({ id, file, title, description }) => {
     >
       <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
         <img
-          src={`http://localhost:9000/Images/${file}`}
+          src={`${URL}/Images/${file}`}
           alt={title}
           className="w-full h-60 object-cover rounded-lg shadow-md"
         />

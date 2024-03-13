@@ -9,17 +9,14 @@ const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [_, setCookies] = useCookies("access-token");
   const navigate = useNavigate();
-
+  const URL = import.meta.env.VITE_BACKEND_URL;
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const respond = await axios.post(
-        "http://localhost:9000/api/v1/user/login",
-        {
-          username,
-          password,
-        }
-      );
+      const respond = await axios.post(`${URL}/api/v1/user/login`, {
+        username,
+        password,
+      });
       setCookies("access-token", respond.data.token);
       const message = respond.data.message;
       if (message == "Login Successfully") {

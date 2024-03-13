@@ -6,6 +6,7 @@ import Detail from "../components/Detail";
 import Loading from "../components/Loading";
 
 const DetailPost = () => {
+  const URL = import.meta.env.VITE_BACKEND_URL;
   const { id } = useParams();
   const [post, setpost] = useState();
   const [loading, setLoading] = useState(false);
@@ -13,9 +14,7 @@ const DetailPost = () => {
     const getDetails = async () => {
       try {
         setLoading(true);
-        const respond = await axios.get(
-          `http://localhost:9000/api/v1/post/detailpost/${id}`
-        );
+        const respond = await axios.get(`${URL}/api/v1/post/detailpost/${id}`);
         // console.log(respond);
         setLoading(false);
         setpost(respond.data);

@@ -6,15 +6,14 @@ import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../App";
 const Logout = () => {
+  const URL = import.meta.env.VITE_BACKEND_URL;
   const [cookies, setCookie, removeCookie] = useCookies(["access-token"]);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const user = useContext(userContext);
   const handleLogout = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:9000/api/v1/user/logout"
-      );
+      const response = await axios.post(`${URL}/api/v1/user/logout`);
 
       if (response.data.message === "Logout Successful") {
         removeCookie("access-token");

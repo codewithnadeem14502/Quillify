@@ -3,14 +3,16 @@ import axios from "axios";
 import Post from "../components/Post";
 import { Link } from "react-router-dom";
 const Home = () => {
+  const URL = import.meta.env.VITE_BACKEND_URL;
+  console.log(" URL ", import.meta.env.VITE_BACKEND_URL);
   const [posts, setPosts] = useState([]);
-  {
-    console.log("hello from client side ");
-  }
+  // {
+
+  // }
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/api/v1/post");
+        const response = await axios.get(`${URL}/api/v1/post`);
         console.log("Response:", response.data);
         setPosts(response.data.reverse());
         // console.log("Response:", response.data);

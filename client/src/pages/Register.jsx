@@ -11,10 +11,10 @@ const Register = () => {
   const navigate = useNavigate();
   const HandleSubmit = async (e) => {
     e.preventDefault();
-
+    const URL = import.meta.env.VITE_BACKEND_URL;
     try {
       const respond = await axios.post(
-        "http://localhost:9000/api/v1/user/register",
+        `${URL}/api/v1/user/register`,
 
         {
           username,

@@ -14,12 +14,15 @@ export const userContext = createContext();
 
 const App = () => {
   const [user, setUser] = useState({});
-
+  const URL = import.meta.env.VITE_BACKEND_URL;
+  {
+    console.log("hello from client side ", import.meta.env.VITE_BACKEND_URL);
+  }
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
     axios
-      .get("http://localhost:9000/api/v1/user/")
+      .get(`http://localhost:9000/api/v1/user/`)
       .then((user) => {
         // console.log(user);
         setUser(user.data);

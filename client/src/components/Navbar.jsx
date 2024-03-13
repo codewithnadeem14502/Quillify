@@ -11,12 +11,6 @@ const Navbar = () => {
         <Link to="/">Quillify</Link>
       </h1>
       <div className="flex space-x-4">
-        {/* <Link
-          to="/"
-          className="text-black text-lg font-semibold bg-slate-200 hover:bg-black hover:text-white p-3 rounded-md "
-        >
-          Home
-        </Link> */}
         {user.username && (
           <Link
             to="/create"
@@ -25,12 +19,6 @@ const Navbar = () => {
             Create
           </Link>
         )}
-        {/* <Link
-          to="/About"
-          className="text-black text-lg font-semibold bg-slate-200 hover:bg-black hover:text-white p-3 rounded-md "
-        >
-          About
-        </Link> */}
       </div>
       {user.username ? (
         <Logout />

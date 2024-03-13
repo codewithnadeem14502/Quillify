@@ -10,13 +10,11 @@ const Edit = () => {
   const [description, setDescription] = useState("");
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
-
+  const URL = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const getDetails = async () => {
       try {
-        const respond = await axios.get(
-          `http://localhost:9000/api/v1/post/detailpost/${id}`
-        );
+        const respond = await axios.get(`${URL}/api/v1/post/detailpost/${id}`);
         // console.log(respond);
 
         setTitle(respond.data.title);
@@ -32,10 +30,10 @@ const Edit = () => {
     e.preventDefault();
 
     try {
-      const respond = await axios.post(
-        `http://localhost:9000/api/v1/post/editpost/${id}`,
-        { title, description }
-      );
+      const respond = await axios.post(`${URL}/api/v1/post/editpost/${id}`, {
+        title,
+        description,
+      });
 
       const message = respond.data.message;
       // console.log("msss " + message);
