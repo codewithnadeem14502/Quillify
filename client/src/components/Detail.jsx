@@ -16,7 +16,7 @@ const Detail = ({ id, file, title, description, username }) => {
   const handleDeletePost = async (id) => {
     try {
       const respond = await axios.delete(
-        `http://localhost:5000/api/v1/post/deletepost/${id}`
+        `http://localhost:9000/api/v1/post/deletepost/${id}`
       );
 
       const message = respond.data.message;
@@ -36,7 +36,7 @@ const Detail = ({ id, file, title, description, username }) => {
     <div className="bg-white p-9 rounded-lg shadow-md mx-auto mt-8">
       <div className="relative flex items-center justify-center aspect-w-16 aspect-h-9 mb-6 overflow-hidden rounded-lg">
         <img
-          src={`http://localhost:5000/Images/${file}`}
+          src={`http://localhost:9000/Images/${file}`}
           alt={title}
           className="rounded-lg object-cover w-[90%] h-[400px] transition-transform transform hover:scale-105 border border-black"
         />

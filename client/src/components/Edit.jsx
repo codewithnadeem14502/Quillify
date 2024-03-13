@@ -15,7 +15,7 @@ const Edit = () => {
     const getDetails = async () => {
       try {
         const respond = await axios.get(
-          `http://localhost:5000/api/v1/post/detailpost/${id}`
+          `http://localhost:9000/api/v1/post/detailpost/${id}`
         );
         // console.log(respond);
 
@@ -33,7 +33,7 @@ const Edit = () => {
 
     try {
       const respond = await axios.post(
-        `http://localhost:5000/api/v1/post/editpost/${id}`,
+        `http://localhost:9000/api/v1/post/editpost/${id}`,
         { title, description }
       );
 

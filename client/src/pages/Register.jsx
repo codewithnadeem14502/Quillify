@@ -14,7 +14,7 @@ const Register = () => {
 
     try {
       const respond = await axios.post(
-        "http://localhost:5000/api/v1/user/register",
+        "http://localhost:9000/api/v1/user/register",
 
         {
           username,

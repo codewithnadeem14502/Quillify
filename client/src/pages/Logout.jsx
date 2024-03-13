@@ -13,7 +13,7 @@ const Logout = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/user/logout"
+        "http://localhost:9000/api/v1/user/logout"
       );
 
       if (response.data.message === "Logout Successful") {

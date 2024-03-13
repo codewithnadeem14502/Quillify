@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/post");
+        const response = await axios.get("http://localhost:9000/api/v1/post");
         console.log("Response:", response.data);
         setPosts(response.data.reverse());
         // console.log("Response:", response.data);

@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/user/")
+      .get("http://localhost:9000/api/v1/user/")
       .then((user) => {
         // console.log(user);
         setUser(user.data);
