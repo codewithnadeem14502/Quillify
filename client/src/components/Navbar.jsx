@@ -36,7 +36,7 @@ const Navbar = () => {
         <Logout />
       ) : (
         <Link
-          to="/register"
+          to="/login"
           className="text-black text-lg font-semibold bg-slate-200 hover:bg-black hover:text-white p-3 rounded-md "
         >
           Login/Register
