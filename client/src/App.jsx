@@ -15,10 +15,10 @@ export const userContext = createContext();
 const App = () => {
     const URL = import.meta.env.VITE_BACKEND_URL;
   const [user, setUser] = useState({});
-  const URL = import.meta.env.VITE_BACKEND_URL;
-  {
-    console.log("hello from client side ", import.meta.env.VITE_BACKEND_URL);
-  }
+  // const URL = import.meta.env.VITE_BACKEND_URL;
+  // {
+  //   console.log("hello from client side ", import.meta.env.VITE_BACKEND_URL);
+  // }
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
