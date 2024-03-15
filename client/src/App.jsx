@@ -13,6 +13,7 @@ import Edit from "./components/Edit";
 export const userContext = createContext();
 
 const App = () => {
+    const URL = import.meta.env.VITE_BACKEND_URL;
   const [user, setUser] = useState({});
   const URL = import.meta.env.VITE_BACKEND_URL;
   {
@@ -22,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/api/v1/user/`)
+      .get(`${URL}/api/v1/user/`)
       .then((user) => {
         // console.log(user);
         setUser(user.data);
