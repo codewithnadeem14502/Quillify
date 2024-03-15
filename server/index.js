@@ -34,7 +34,7 @@ app.use(
 );
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/post", postRouter);
-app.use(isAuth);
+//app.use(isAuth);
 
 app.get("/", (req, res) => {
   res.send("Welcome to my blog server!");
