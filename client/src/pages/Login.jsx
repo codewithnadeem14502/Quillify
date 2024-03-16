@@ -7,7 +7,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { enqueueSnackbar } = useSnackbar();
-  const [_, setCookie] = useCookies("access-token");
+  const [_, setCookies] = useCookies("access-token");
   const navigate = useNavigate();
   const URL = import.meta.env.VITE_BACKEND_URL;
   const HandleSubmit = async (e) => {
@@ -17,7 +17,7 @@ const Login = () => {
         username,
         password,
       });
-     setCookie('access-token', token, { secure: true, sameSite: 'none' });
+     setCookies('access-token', token, { secure: true, sameSite: 'none' });
       const message = respond.data.message;
       if (message == "Login Successfully") {
         // navigate("/");
