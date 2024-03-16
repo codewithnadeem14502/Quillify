@@ -10,17 +10,39 @@ const Login = () => {
   const [_, setCookies] = useCookies("access-token");
   const navigate = useNavigate();
   const URL = import.meta.env.VITE_BACKEND_URL;
-  const HandleSubmit = async (e) => {
+  // const HandleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const respond = await axios.post(`${URL}/api/v1/user/login`, {
+  //       username,
+  //       password,
+  //     });
+  //    setCookies("access-token", respond.data.token);
+  //     const message = respond.data.message;
+  //     if (message == "Login Successfully") {
+  //       // navigate("/");
+  //       enqueueSnackbar(message, { variant: "success" });
+  //       setTimeout(() => {
+  //         window.location.href = "/";
+  //       }, 1000);
+  //     } else {
+  //       enqueueSnackbar(message, { variant: "error" });
+  //     }
+  //   } catch (error) {
+  //     enqueueSnackbar(error, { variant: "error" });
+  //   }
+  // };
+    const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
       const respond = await axios.post(`${URL}/api/v1/user/login`, {
         username,
         password,
+      }, {
+        withCredentials: true // Include credentials (cookies) in the request
       });
-     setCookies("access-token", respond.data.token);
       const message = respond.data.message;
-      if (message == "Login Successfully") {
-        // navigate("/");
+      if (message === "Login Successfully") {
         enqueueSnackbar(message, { variant: "success" });
         setTimeout(() => {
           window.location.href = "/";
@@ -29,7 +51,7 @@ const Login = () => {
         enqueueSnackbar(message, { variant: "error" });
       }
     } catch (error) {
-      enqueueSnackbar(error, { variant: "error" });
+      enqueueSnackbar(error.message || "An error occurred", { variant: "error" });
     }
   };
   return (
