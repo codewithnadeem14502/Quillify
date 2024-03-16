@@ -15,8 +15,7 @@ const Edit = () => {
     const getDetails = async () => {
       try {
         const respond = await axios.get(`${URL}/api/v1/post/detailpost/${id}`);
-        // console.log(respond);
-
+      
         setTitle(respond.data.title);
         setDescription(respond.data.description);
       } catch (error) {
