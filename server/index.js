@@ -25,6 +25,7 @@ app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
+    // origin: ["http://localhost:5173"],
     origin: ["https://quillify-iota.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders:
