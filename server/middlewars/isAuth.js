@@ -16,11 +16,8 @@ export  const isAuth = async (req, res, next) => {
       } else {
         const decoded = jwt.verify(token, "secret");
         // If you need to use the decoded information, you can access it via `decoded`
-        req.id = decoded.id;
-        req.email = decoded.email;
-        req.Date = decoded.Date;
-        req.pgplantype = decoded.pgplantype;
-
+       req.email = decoded.email;
+  req.username = decoded.username;
         next();
       }
     } catch (error) {
