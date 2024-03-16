@@ -1,28 +1,25 @@
 import jwt from "jsonwebtoken";
 
-export  const isAuth = async (req, res, next) => {
+export const isAuth = async (req, res, next) => {
   let token = "";
+  // console.log("Is auth is working ");
 
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    try {
-      token = req.headers.authorization.split(" ")[1];
-      console.log("Token ", token);
+  try {
+    token = req.cookies["access-token"];
+    console.log("Token ", token);
 
-      if (!token) {
-        return res.json({ message: "The Token Is Missing" });
-      } else {
-        const decoded = jwt.verify(token, "secret");
-        // If you need to use the decoded information, you can access it via `decoded`
-       req.email = decoded.email;
-  req.username = decoded.username;
-        next();
-      }
-    } catch (error) {
-      res.status(401).json({ message: "Not authorized" });
+    if (!token) {
+      return res.json({ message: "The Token Is Missing" });
+    } else {
+      const decoded = jwt.verify(token, "secret");
+      // If you need to use the decoded information, you can access it via `decoded`
+      req.username = decoded.username;
+      req.email = decoded.email;
+
+      next();
     }
+  } catch (error) {
+    res.status(401).json({ message: "Not authorized" });
   }
 
   if (!token) {
@@ -30,30 +27,22 @@ export  const isAuth = async (req, res, next) => {
   }
 };
 
-export default isAuth;
-
-// import jwt from "jsonwebtoken";
-// export const isAuth = async (req, res, next) => {
-//   const token = req.cookies["access-token"];
-//    const cookieHeader = req.headers.cookie;
-//    console.log("Cookie Header :", cookieHeader);
-//    console.log("cookie req.cookie = ",req.cookies["access-token"]);
-//   console.log("Token value :", token);
+// export const isAuth = (req, res, next) => {
+//   const token = req.cookies["access-token"]; // Assuming you're using cookies for token storage
+//   console.log("Token :", token);
 //   if (!token) {
-//     return res.json({ message: "The Token Is Missing" });
-//   } else {
-//     jwt.verify(token, "secret", (error, decoded) => {
-//       if (error) {
-//         console.error("Token verification error:", error);
-//         return res.json({ message: "Token Wrong" });
-//       } else {
-//         // console.log("Decoded Token:", decoded);
-//         req.email = decoded.email;
-//         // console.log("Decoded Email:", req.email);
-//         req.username = decoded.username;
-//         // console.log("Decoded Username:", req.username);
-//         next();
-//       }
-//     });
+//     return res.status(401).json({ message: "Unauthorized: No token provided" });
 //   }
-// }; 
+
+//   try {
+//     console.log("decoding");
+//     const decoded = jwt.verify(token, "secret"); // Make sure to use the same secret key as used for signing
+//     console.log("answer ", decoded);
+//     // Attach the user object to the request for further usage
+//     req.user = decoded;
+
+//     next(); // Move to the next middleware
+//   } catch (error) {
+//     return res.status(401).json({ message: "Unauthorized: Invalid token" });
+//   }
+// };
