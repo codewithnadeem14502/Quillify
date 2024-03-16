@@ -7,7 +7,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { enqueueSnackbar } = useSnackbar();
-  const [_, setCookies] = useCookies("access-token");
+  const [_, setCookie] = useCookies("access-token");
   const navigate = useNavigate();
   const URL = import.meta.env.VITE_BACKEND_URL;
   const HandleSubmit = async (e) => {
