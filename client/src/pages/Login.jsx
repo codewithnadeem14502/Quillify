@@ -17,7 +17,10 @@ const Login = () => {
         username,
         password,
       });
-     setCookies("access-token", respond.data.token);
+    setCookies("access-token", response.data.token, {
+        sameSite: 'none',
+        secure: true // Secure flag is required for SameSite=None
+      });
       const message = respond.data.message;
       if (message == "Login Successfully") {
         // navigate("/");
