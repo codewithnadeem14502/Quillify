@@ -17,7 +17,7 @@ const Login = () => {
         username,
         password,
       });
-     setCookies('access-token', token, { secure: true, sameSite: 'none' });
+     setCookies("access-token", respond.data.token);
       const message = respond.data.message;
       if (message == "Login Successfully") {
         // navigate("/");
