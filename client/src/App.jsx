@@ -16,7 +16,7 @@ const App = () => {
     const URL = import.meta.env.VITE_BACKEND_URL;
   const [user, setUser] = useState({});
 
-  // axios.defaults.withCredentials = true;
+   axios.defaults.withCredentials = true;
 
   useEffect(() => {
     axios
