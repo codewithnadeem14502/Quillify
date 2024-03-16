@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 export const isAuth = async (req, res, next) => {
   const token = req.cookies["access-token"];
-  // console.log(token);
+  console.log("Token value :", token);
   if (!token) {
     return res.json({ message: "The Token Is Missing" });
   } else {
