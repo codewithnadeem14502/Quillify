@@ -26,8 +26,14 @@ const App = () => {
         setUser(response.data);
       })
       .catch((error) => console.log(error));
+    
   }, []);
 
+  useEffect(() => {
+    // Set cookie with domain and path
+    document.cookie = "access-token=; domain=.onrender.com; path=/;";
+  }, []); // This useEffect runs only once on component mount
+    
   return (
     <userContext.Provider value={user}>
       <BrowserRouter>
