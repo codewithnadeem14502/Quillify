@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const isAuth = async (req, res, next) => {
+export  const isAuth = async (req, res, next) => {
   let token = "";
 
   if (
