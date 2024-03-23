@@ -7,12 +7,9 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { enqueueSnackbar } = useSnackbar();
-<<<<<<< HEAD
+
   const [cookies, setCookie] = useCookies(["accesstoken"]);
-=======
-  // const [_, setCookies] = useCookies("access-token");
-   const [cookies, setCookie] = useCookies(["accesstoken"]);
->>>>>>> origin/master
+
   const navigate = useNavigate();
   const URL = import.meta.env.VITE_BACKEND_URL;
   const HandleSubmit = async (e) => {
@@ -22,15 +19,9 @@ const Login = () => {
         username,
         password,
       });
-<<<<<<< HEAD
+
       setCookie("access-token", respond.data.token);
-=======
-         setCookie("access-token", respond.data.token);
-    // setCookies("access-token", respond.data.token, {
-    //     sameSite: 'none',
-    //     secure: true // Secure flag is required for SameSite=None
-    //   });
->>>>>>> origin/master
+
       const message = respond.data.message;
       if (message == "Login Successfully") {
         // navigate("/");
@@ -45,7 +36,7 @@ const Login = () => {
       enqueueSnackbar(error, { variant: "error" });
     }
   };
-    
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-96">
