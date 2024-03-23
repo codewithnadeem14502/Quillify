@@ -12,11 +12,7 @@ const Navbar = () => {
         <Link to="/">Quillify</Link>
       </h1>
       <div className="flex space-x-4">
-<<<<<<< HEAD
         {user != null && user?.username && (
-=======
-        {user != null && user?.username  && (
->>>>>>> origin/master
           <Link
             to="/create"
             className="text-black text-sm md:text-lg font-semibold bg-slate-200 hover:bg-black hover:text-white p-3 rounded-md "
@@ -25,11 +21,7 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-<<<<<<< HEAD
       {user != null && user?.username ? (
-=======
-      {user != null && user?.username  ? (
->>>>>>> origin/master
         <Logout />
       ) : (
         <Link
