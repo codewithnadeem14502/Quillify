@@ -33,6 +33,7 @@ export const isAuth = async (req, res, next) => {
 
   try {
     token = req.cookies["access-token"];
+     console.log("req,cookies from middleware", req);
       console.log("req,cookies from middleware", req.cookies);
    console.log("Token from middleware", req.cookies["access-token"]);
     if (!token) {
