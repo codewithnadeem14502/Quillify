@@ -19,7 +19,8 @@ const Login = () => {
         username,
         password,
       });
-
+   console.log("Responsd from login ",respond)
+       console.log("Responsd from login ",respond.data.token)
       setCookie("access-token", respond.data.token);
 
       const message = respond.data.message;
