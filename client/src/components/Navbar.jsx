@@ -5,6 +5,7 @@ import { userContext } from "../App";
 import Logout from "../pages/Logout";
 const Navbar = () => {
   const user = useContext(userContext);
+  // console.log("user ,", user);
   return (
     <div className="flex justify-between items-center text-center bg-slate-50 p-5  border-b border-black">
       <h1 className="text-black text-lg md:text-3xl font-bold hover:bg-black hover:text-white p-3 rounded-md ">

@@ -22,7 +22,7 @@ const App = () => {
     axios
       .get(`${URL}/api/v1/user/`)
       .then((response) => {
-        console.log("User ", response.data);
+        // console.log("User data ", response.data);
         setUser(response.data);
       })
       .catch((error) => console.log(error));
