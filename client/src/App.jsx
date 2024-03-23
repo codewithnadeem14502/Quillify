@@ -23,6 +23,7 @@ const App = () => {
       .get(`${URL}/api/v1/user/`)
       .then((response) => {
         setUser(response.data);
+        console.log("User data from app ",response.data);
       })
       .catch((error) => console.log(error));
   }, []);
