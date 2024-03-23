@@ -33,7 +33,8 @@ export const isAuth = async (req, res, next) => {
 
   try {
     token = req.cookies["access-token"];
-   console.log("Token ", req.cookies["access-token"]);
+      console.log("req,cookies from middleware", req.cookies);
+   console.log("Token from middleware", req.cookies["access-token"]);
     if (!token) {
       return res.json({ message: "The Token Is Missing" });
     } else {
