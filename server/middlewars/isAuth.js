@@ -33,8 +33,7 @@ export const isAuth = async (req, res, next) => {
 
   try {
     token = req.cookies["access-token"];
-    console.log("Token ", req.headers.authorization);
-
+   console.log("Token ", req.cookies["access-token"]);
     if (!token) {
       return res.json({ message: "The Token Is Missing" });
     } else {
