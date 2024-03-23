@@ -13,13 +13,8 @@ import Edit from "./components/Edit";
 export const userContext = createContext();
 
 const App = () => {
-<<<<<<< HEAD
   const URL = import.meta.env.VITE_BACKEND_URL;
   const [user, setUser] = useState(null);
-=======
-    const URL = import.meta.env.VITE_BACKEND_URL;
-   const [user, setUser] = useState(null);
->>>>>>> origin/master
 
   axios.defaults.withCredentials = true;
 
@@ -27,18 +22,11 @@ const App = () => {
     axios
       .get(`${URL}/api/v1/user/`)
       .then((response) => {
-<<<<<<< HEAD
-        // console.log("User data ", response.data);
-=======
-        console.log("User ", response.data);
->>>>>>> origin/master
         setUser(response.data);
       })
       .catch((error) => console.log(error));
-    
   }, []);
 
-    
   return (
     <userContext.Provider value={user}>
       <BrowserRouter>
