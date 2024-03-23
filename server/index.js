@@ -33,7 +33,10 @@ app.use(
     credentials: true,
   })
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Origin", req.headers.origin);
